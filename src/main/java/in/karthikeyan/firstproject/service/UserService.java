@@ -6,18 +6,20 @@ import in.karthikeyan.firstproject.model.User;
 public class UserService {
 
 	public User[] getAll() {
-		
-		UserDAO userDao = new UserDAO();
-		
-		User[] userList = userDao.findAll();
-		
-		for(int i = 0; i <userList.length; i++) {
-			
-			System.out.println(userList[i]);
-		}
-		
-		return userList;
-		
-		
+		UserDAO userdao = new UserDAO();
+		User[] UserList = userdao.findAll();
+		System.out.println(UserList[0]);
+		return UserList;
+	}
+	public void create() {
+		User newUser = new User();
+		newUser.setId(12345);
+		newUser.setFirstName("karthi");
+		newUser.setLastName("keyan");
+		newUser.setEmail("karthikn354@gmail.com");
+		newUser.setPassword("sollamattan");
+		newUser.setActive(true);
+		UserDAO userDAO = new UserDAO();
+		userDAO.create(newUser);
 	}
 }

@@ -3,25 +3,14 @@ package in.karthikeyan.firstproject.dao;
 import in.karthikeyan.firstproject.model.User;
 
 public class UserDAO {
+
 	public User[] findAll() {
-		
-		User[] userlist = UserList.listOfUsers;
-		return userlist;
-		
-		
+		User[] userList = UserList.listOfUsers;	
+		return userList;
 	}
 	
-	public void creat() {
-		User newUser  = new User();
-		
-		newUser.setId(1234567890);
-		newUser.setFirstName("karthi");
-		newUser.setLastName("keyan");
-		newUser.setEmail("karthikn352004@gmail.com");
-		newUser.setPassword("sollamattan");
-		newUser.setActive(true);
+public void create(User newUser) {
 		
 		UserList.listOfUsers[0] = newUser;
-		
 	}
 }
