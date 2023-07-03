@@ -1,0 +1,25 @@
+-------------------------------------------------------------------------------
+Test set: firstproject.TestCreateUser
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.006 s <<< FAILURE! - in firstproject.TestCreateUser
+firstproject.TestCreateUser.testCreateUserWithValidataInput()  Time elapsed: 0.001 s  <<< FAILURE!
+java.lang.Error: 
+Unresolved compilation problems: 
+	Syntax error on token "void", record expected
+	void is an invalid type for the variable testCreateUserWithInvalidataInput
+	Syntax error, insert "... VariableDeclaratorId" to complete FormalParameter
+	Syntax error, insert ")" to complete ConstructorDeclaration
+	Syntax error, insert ";" to complete ConstructorDeclaration
+	Syntax error, insert "}" to complete RecordBody
+	Syntax error on tokens, delete these tokens
+	Syntax error on token "void", record expected
+	Syntax error, insert "... VariableDeclaratorId" to complete FormalParameter
+	Syntax error, insert ")" to complete ConstructorDeclaration
+	Syntax error, insert ";" to complete ConstructorDeclaration
+	Syntax error, insert "}" to complete RecordBody
+	Syntax error, insert ")" to complete Expression
+	Syntax error, insert "AssignmentOperator Expression" to complete Assignment
+	Syntax error, insert ";" to complete Statement
+
+	at firstproject.TestCreateUser.testCreateUserWithValidataInput(TestCreateUser.java:31)
+
