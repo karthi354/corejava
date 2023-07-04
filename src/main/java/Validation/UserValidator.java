@@ -16,6 +16,7 @@ public class UserValidator {
     	if(user.getFirstName() == null || "".equals(user.getFirstName().trim())) {
     		throw new ValidationException("FirstName cannot be null or empty");
     	}
+    	
 
     }
 	

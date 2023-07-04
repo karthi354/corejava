@@ -65,4 +65,5 @@ public class User {
 	public String fullName() {
 		return firstName.concat("").concat(lastName);
 	}
+
 }

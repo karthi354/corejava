@@ -1,27 +1,39 @@
 package util;
 
+import java.time.LocalDate;
+
 import exception.ValidationException;
 
 public class StringUtil {
-	public static void rejectIfInvalidString(String input, String inputName) throws ValidationException {
+	public static void rejectIfInvalidString(String input , String inputName) throws ValidationException{
 		if(input == null || "".equals(input.trim())) {
-			throw new ValidationException(inputName.concat(" can't be null or empty"));
+			throw new ValidationException(inputName.concat(" cannot be null or empty"));
 		}
 	}
 	
-	public static boolean isValidString(String input){
-		if(input == null || "".equals(input.trim())) {
-			return true;
+	public static void rejectIfInvalidDate(LocalDate newdate,String inputName) throws ValidationException {
+		LocalDate currentDate = LocalDate.now();
+		if(newdate.isBefore(currentDate)) {
+			throw new ValidationException(inputName.concat(" cannot be past"));
+			
 		}
-			return false;
-		
 	}
 	
-	public static boolean isInValidString(String input){
+	
+	
+	
+	
+	
+	public static boolean isValidString(String input) {
 		if(input == null || "".equals(input.trim())) {
 			return false;
 		}
+		return true;
+	}
+	public static boolean isInValidString(String input) {
+		if(input != null || "".equals(input.trim())) {
 			return true;
-		
+		}
+		return false;
 	}
 }
