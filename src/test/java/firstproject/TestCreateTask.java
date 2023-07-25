@@ -1,6 +1,6 @@
 package firstproject;
 
-	import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -12,16 +12,16 @@ import exception.ValidationException;
 import in.karthikeyan.firstproject.model.Task;
 import in.karthikeyan.firstproject.service.TaskService;
 
-	public class TestCreateTask {
+	 class TestCreateTask {
 		@Test
-		public void testCreateTaskWithValidInput() {
+		 void testCreateTaskWithValidInput() {
 			TaskService taskService = new TaskService();
 			
 			Task newTask = new Task();
 			newTask.setId(01);
 			newTask.setTaskName("Java homework");
 			String date = "04/07/2023";
-			LocalDate dueDate =	taskService.convertDate(date);
+			LocalDate dueDate =	TaskService.convertToDate(date);
 			newTask.setDueDate(dueDate);
 			newTask.setActive(true);
 			
@@ -32,7 +32,7 @@ import in.karthikeyan.firstproject.service.TaskService;
 		
 		
 		@Test
-		public void testCreateTaskWithInvalidInput() {
+		 void testCreateTaskWithInvalidInput() {
 			TaskService taskService = new TaskService();
 			
 			Exception exception = assertThrows(ValidationException.class,()->{
@@ -45,13 +45,13 @@ import in.karthikeyan.firstproject.service.TaskService;
 		}
 		
 		@Test
-		public void testTaskNameWithNull() {
+		 void testTaskNameWithNull() {
 			TaskService taskService = new TaskService();
 			Task newTask = new Task();
 			newTask.setId(01);
 			newTask.setTaskName(null);
 			String date = "04/07/2023";
-			LocalDate dueDate =	taskService.convertDate(date);
+			LocalDate dueDate =	TaskService.convertToDate(date);
 			newTask.setDueDate(dueDate);
 			newTask.setActive(true);
 			
@@ -65,14 +65,14 @@ import in.karthikeyan.firstproject.service.TaskService;
 		}
 		
 		@Test
-		public void testTaskWithEmptyString() {
+		 void testTaskWithEmptyString() {
 			TaskService taskService = new TaskService();
 			Task newTask = new Task();
 			newTask.setId(01);
 			newTask.setTaskName("");
 
 			String date = "04/07/2023";
-			LocalDate dueDate =	taskService.convertDate(date);
+			LocalDate dueDate =	TaskService.convertToDate(date);
 			newTask.setDueDate(dueDate);
 			newTask.setActive(true);
 			
@@ -86,13 +86,13 @@ import in.karthikeyan.firstproject.service.TaskService;
 		}
 		
 		@Test
-		public void testDueDateWithInvalidDate() {
+		 void testDueDateWithInvalidDate() {
 			TaskService taskService = new TaskService();
 			Task newTask = new Task();
 			newTask.setId(01);
 			newTask.setTaskName("Java homework");
 			String date = "04/07/2022";
-			LocalDate dueDate =	taskService.convertDate(date);
+			LocalDate dueDate =	TaskService.convertToDate(date);
 			newTask.setDueDate(dueDate);
 			newTask.setActive(true);
 			

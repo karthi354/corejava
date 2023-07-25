@@ -1,83 +1,80 @@
 package in.karthikeyan.firstproject.dao;
+
 import in.karthikeyan.firstproject.model.User;
+import interfaces.UserInterface;
+import java.util.Set;
 
-public class UserDAO {
+public class UserDAO implements UserInterface {
 
-	public User[] findAll() {
-		User[] userList = UserList.listOfUsers;	
+	@Override
+	public Set<User> findAll() {
+		Set<User> userList = UserList.listOfUsers; // collecting data from UserList class.
 		return userList;
 	}
-	
-public void create(User newUser) {
-		
-//		UserList.listOfUsers[0] = newUser;
-		
-		User[] arr = UserList.listOfUsers;
-		
-		for (int i=0; i<arr.length;i++) {
-			User user = arr[i];
-			if(user == null) {
-				arr[i] = newUser;
+
+	@Override
+	public void create(User newUser) {
+		Set<User> userList = UserList.listOfUsers;
+		userList.add(newUser);
+	}
+
+	@Override
+	public void update(int id, User updatedUser) {
+		Set<User> userList = UserList.listOfUsers;
+		for (User user : userList) {
+			if (user.getId() == id) {
+				user.setFirstName(updatedUser.getFirstName());
+				user.setLastName(updatedUser.getLastName());
+				user.setEmail(updatedUser.getEmail());
+				user.setPassword(updatedUser.getPassword());
+				user.setActive(true);
 				break;
-				
 			}
 		}
 	}
-/**
- * 
- * @param j 
- * @param updateUser
- */
 
-public void update(int j, User updateUser) {
-	
-	User[] arr = UserList.listOfUsers;
-
-	for (int i=0; i<arr.length;i++) {
-		User user = arr[i];
-		if(user==null) {
-			continue;
-		}
-		if(user.getId()==i) {
-			arr[i] = updateUser;
-			break;
-		}
-		
-	}
-		
-	}
-public void delete(int id) {
-	
-	User[] arr = UserList.listOfUsers;
-
-	for (int i=0; i<arr.length;i++) {
-		User user = arr[i];
-		if(user==null) {
-			continue;
-		}
-		if(user.getId()==id) {
-			user.setActive(false);
-			break;
-		}
-		
-	}
-		
-	}
-
-public User findById(int userId) {
-	User[] userList = UserList.listOfUsers;
-	User userMatch = null;
-
-	for (int i = 0; i < userList.length; i++) {
-		User user = userList[i];
-		if (user.getId() == userId) {
-			userMatch = user;
-			break;
+	@Override
+	public void delete(int id) {
+		Set<User> userList = UserList.listOfUsers;
+		for (User user : userList) {
+			if (user != null && user.getId() == id) {
+				user.setActive(false);
+			}
 		}
 	}
-	return userMatch;
+
+	@Override
+	public User findById(int id) {
+		Set<User> userList = UserList.listOfUsers;
+		for (User user : userList) {
+			if (user != null && user.getId() == id) {
+				return user;
+			}
+		}
+		return null;
+	}
+
+	@Override
+	public User findByEmail(String email) {
+		Set<User> userList = UserList.listOfUsers;
+		for (User user : userList) {
+			if (user != null && user.getEmail() == email) {
+				return user;
+			}
+		}
+		return null;
+	}
+
+	@Override
+	public int count() {
+		Set<User> userList = UserList.listOfUsers;
+		int countOfUsers = 0;
+		for (User user : userList) {
+			if (user != null) {
+				countOfUsers += 1;
+			}
+		}
+
+		return countOfUsers;
+	}
 }
-
-	
-}
-

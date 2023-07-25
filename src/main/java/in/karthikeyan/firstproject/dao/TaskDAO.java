@@ -33,7 +33,7 @@ public class TaskDAO {
 			}
 		}
 	}
-	public void delete(int id, Task updatedTask) {
+	public void delete(int id) {
 		Task[] taskList  = TaskList.ListOfTask;
 		
 		for(int i=0;i<taskList.length;i++) {
